@@ -3,6 +3,7 @@
 This project had two main objectives:
 * Clean up the data to make it usable.
 * Find useful information within said clean data.
+* Answer the question: Why are shark attacks on the rise?
 
 ## Getting Started
 
