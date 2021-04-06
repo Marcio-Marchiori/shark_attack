@@ -37,19 +37,24 @@ def better_dates(date_all):
         return 'Not useful.'
 
 
-def ranged_list(list_range,signal):
+def ranged_list(list_range,signal,amount):
     list_randok = []
     if signal == '-':
             for x in list_range:
-                list_randok.append(str(x.year - 1) + '-' + str(x.month) + '-' + str(x.day))
+                list_randok.append(str(x.year - amount) + '-' + str(x.month) + '-' + str(x.day))
             
             return list_randok
     
     else:
         for x in list_range:
-            list_randok.append(str(x.year + 1) + '-' + str(x.month) + '-' + str(x.day))
+            list_randok.append(str(x.year + amount) + '-' + str(x.month) + '-' + str(x.day))
 
         return list_randok
+
+def fmt_date(date_to_format):
+    from datetime import datetime
+    return datetime.strptime(date_to_format, "%Y-%m-%d").date()
+    
 
 
 # Imports file and drop 3 columns considered to be useless
@@ -80,5 +85,14 @@ shark_data.drop(columns=['date_check','index','Case Number','Case Number.1','ori
 
 acdc_ab['Release Date'] = acdc_ab['Release Date'].apply(lambda x: re.sub('Released: ', '', x)).apply(better_dates)
 release_date_list = acdc_ab['Release Date'].tolist()
-lista_menos = ranged_list(release_date_list,'-')
-lista_mais = ranged_list(release_date_list,'+')
+lista_menos = ranged_list(release_date_list,'-',1)
+lista_mais = ranged_list(release_date_list,'+',1)
+before_lst = []
+after_lst = []
+
+for i in range(len(release_date_list)-1):
+    date_bef = fmt_date(lista_menos[i])
+    date_aft = fmt_date(lista_mais[i])
+    date_rls = release_date_list[i]
+    before_lst.append(len(shark_data[(shark_data['Date'].dt.date >date_bef) & (shark_data['Date'].dt.date <date_rls)]))
+    after_lst.append(len(shark_data[(shark_data['Date'].dt.date >date_rls) & (shark_data['Date'].dt.date <date_aft)]))
