@@ -106,3 +106,5 @@ acdc_ab['coefficient'] = coef_albs
 
 
 shark_data.to_csv('data/shark_attack_clean.csv',index=False)
+acdc_ab_attacks = acdc_ab[['Title','coefficient']]
+acdc_ab_attacks.to_csv('data/acdc_attacks_sharks.csv',index=False)
