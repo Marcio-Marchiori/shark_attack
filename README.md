@@ -72,61 +72,39 @@ We clearly identified two important things the band AC/DC as one of the main cau
 
 The data:
 ```
+High Voltage                             1.413793
 
+T.N.T.                                   0.973684
 
-Title
-coefficient
-0
-High Voltage
-1.413793
-1
-T.N.T.
-0.973684
-2
-High Voltage (International)
-0.842105
-3
-Dirty Deeds Done Dirt Cheap
-0.800000
-4
-Let There Be Rock
-0.687500
-5
-Powerage
-0.909091
-6
-Highway to Hell
-1.529412
-7
-Back in Black
-1.320000
-8
-For Those About to Rock We Salute You
-0.829268
-9
-Flick of the Switch
-0.794872
-10
-Fly on the Wall
-0.914286
-11
-Blow Up Your Video
-1.531250
-12
-The Razors Edge
-1.083333
-13
-Ballbreaker
-0.763889
-14
-Stiff Upper Lip
-1.526316
-15
-Black Ice
-0.943925
-16
-Rock or Bust
-1.230088
+High Voltage (International)             0.842105
+
+Dirty Deeds Done Dirt Cheap              0.800000
+
+Let There Be Rock                        0.687500
+
+Powerage                                 0.909091
+
+Highway to Hell                          1.529412
+
+Back in Black                            1.320000
+
+For Those About to Rock We Salute You    0.829268
+
+Flick of the Switch                      0.794872
+
+Fly on the Wall                          0.914286
+
+Blow Up Your Video                       1.531250
+
+The Razors Edge                          1.083333
+
+Ballbreaker                              0.763889
+
+Stiff Upper Lip                          1.526316
+
+Black Ice                                0.943925
+
+Rock or Bust                             1.230088
 
 ```
 
