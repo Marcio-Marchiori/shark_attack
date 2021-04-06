@@ -60,7 +60,8 @@ def fmt_date(date_to_format):
 # Imports file and drop 3 columns considered to be useless
 shark_data = pd.DataFrame(pd.read_csv('data/attacks.csv'))
 acdc_ab = pd.DataFrame(pd.read_csv('data/acdc_albums.csv'))
-shark_data.drop(['Unnamed: 22','Unnamed: 23','Case Number.2'],axis=1,inplace=True)
+shark_data.drop(['Unnamed: 22','Unnamed: 23','Case Number.2','Year'],axis=1,inplace=True)
+shark_data.rename(columns={'Sex ':'Sex'},inplace=True)
 
 
 #Drops rows with all columns NaN and also those that have less than 15 columns of Data.
@@ -96,3 +97,12 @@ for i in range(len(release_date_list)-1):
     date_rls = release_date_list[i]
     before_lst.append(len(shark_data[(shark_data['Date'].dt.date >date_bef) & (shark_data['Date'].dt.date <date_rls)]))
     after_lst.append(len(shark_data[(shark_data['Date'].dt.date >date_rls) & (shark_data['Date'].dt.date <date_aft)]))
+
+after_lst.append(1)
+before_lst.append(1)
+
+coef_albs = np.array(after_lst)/np.array(before_lst)
+acdc_ab['coefficient'] = coef_albs
+
+
+shark_data.to_csv('data/shark_attack_clean.csv',index=False)
